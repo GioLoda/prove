@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scarpe da uomo | Vinted</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f6f6f6;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* HEADER SUPERIORE CON CATEGORIE + SEARCH */
+        .topbar {
+            background: #ffffff;
+            padding: 10px 20px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #3bb4a8;
+        }
+
+        .categories {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            font-size: 15px;
+        }
+
+        .categories a {
+            text-decoration: none;
+            color: #444;
+            padding: 6px 0;
+        }
+
+        .searchbar {
+            margin-left: auto;
+            min-width: 250px;
+            flex: 1;
+        }
+
+        .searchbar input {
+            width: 100%;
+            padding: 8px 12px;
+            border-radius: 20px;
+            border: 1px solid #ccc;
+            font-size: 15px;
+        }
+
+        .ad-box {
+            width: 100%;
+            height: 100px;
+            background: #e3e3e3;
+            border: 2px dashed #b5b5b5;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #555;
+            font-size: 18px;
+        }
+
+        /* CONTENITORE PRINCIPALE */
+        .container {
+            max-width: 1100px;
+            margin: 20px auto;
+            padding: 10px;
+        }
+
+    .product-page {
+        display: flex;
+        gap: 30px;
+        flex-wrap: wrap;
+    }
+
+    /* GALLERIA: ora prende ~2/3 */
+    .gallery {
+        flex: 2 1 60%;
+        min-width: 350px;
+    }
+
+    /* INFO PRODOTTO: ora prende ~1/3 */
+    .product-info {
+        flex: 1 1 35%;
+        min-width: 260px;
+    }
+
+        .gallery img {
+            width: 100%;
+            border-radius: 8px;
+            background: #ddd;
+        }
+
+        .thumbs {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .thumbs img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 6px;
+            background: #ddd;
+            cursor: pointer;
+        }
+
+        .price {
+            font-size: 28px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .shipping {
+            font-size: 15px;
+            margin-top: 5px;
+            color: #555;
+        }
+
+        .cta button {
+            width: 100%;
+            padding: 15px;
+            background: #3bb4a8;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            color: white;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .cta .offer-btn {
+            background: #fff;
+            color: #3bb4a8;
+            border: 2px solid #3bb4a8;
+        }
+
+
+        /* *** RIQUADRI STILE VINTED *** */
+        .details, .description, .seller, .similar {
+            background: #fff;
+            padding: 20px;
+            border-radius: 14px;
+            margin-top: 20px;
+            border: 1px solid #c9c9c9;   /* bordo grigio medio */
+        }
+
+        .details table {
+            width: 100%;
+        }
+
+        .details td {
+            padding: 6px 0;
+        }
+
+
+        /* SELLER */
+        .seller-profile {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .seller-profile img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #ccc;
+        }
+
+
+        /* SIMILI */
+        .similar-items {
+            display: flex;
+            gap: 15px;
+            overflow-x: auto;
+            padding-bottom: 10px;
+        }
+
+        .similar-item {
+            width: 150px;
+        }
+
+        .similar-item img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .similar-item p {
+            margin: 5px 0 0;
+            font-size: 14px;
+        }
+		
+		@media (max-width: 768px) {
+
+    .product-page {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .gallery {
+        flex: none;
+        width: 100%;
+        min-width: 100%;
+    }
+
+    .product-info {
+        flex: none;
+        width: 100%;
+        min-width: 100%;
+    }
+
+    .thumbs img {
+        width: 22%;
+        height: auto;
+    }
+
+    .ad-box {
+        height: 80px;
+        font-size: 16px;
+    }
+
+    .details, .seller, .description, .similar {
+        border-radius: 12px;
+        padding: 16px;
+    }
+}
+    </style>
+</head>
+
+<body>
+
+    <!-- BARRA SUPERIORE -->
+    <div class="topbar">
+        <div class="logo">Vinted</div>
+
+        <nav class="categories">
+            <a href="#">Donna</a>
+            <a href="#">Uomo</a>
+            <a href="#">Bambini</a>
+            <a href="#">Casa</a>
+            <a href="#">Elettronica</a>
+            <a href="#">Accessori</a>
+        </nav>
+
+        <div class="searchbar">
+            <input type="text" placeholder="Cerca articoli, brand o categorie...">
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="product-page">
+
+            <!-- IMMAGINI -->
+            <div class="gallery">
+                <img src="principale.jpg" alt="Foto principale">
+                <div class="thumbs">
+                    <img src="secon1.jpg" alt="">
+                    <img src="second2.jpg" alt="">
+                </div>
+            </div>
+
+            <!-- INFO PRODOTTO -->
+            <div class="product-info">
+                <h2>Scarpe da uomo</h2>
+                <div class="price">69,90 €</div>
+                <div class="shipping">📦 Spedizione: da 1,99 €</div>
+
+                <div class="cta">
+                    <button>Acquista</button>
+                    <button class="offer-btn">Invia un'offerta</button>
+                </div>
+
+                <div class="details">
+                    <h3>Dettagli</h3>
+                    <table>
+                        <tr><td><strong>Brand:</strong></td><td>Church's footwear</td></tr>
+						<tr><td><strong>Taglia:</strong></td><td>42</td></tr>
+						<tr><td><strong>Condizioni:</strong></td><td>Ottime</td></tr>
+                        <tr><td><strong>Materiale:</strong></td><td>Pelle, Camoscio</td></tr>
+                        <tr><td><strong>Colore:</strong></td><td>Marrone</td></tr>
+                        <tr><td><strong>Caricato:</strong></td><td>18 ore fa</td></tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- DESCRIZIONE -->
+        <div class="description">
+            <h3>Descrizione</h3>
+            <p>Scarpe da uomo. Stivaletti in pelle scamosciati color marrone. Condizioni ottime: usate tantissimo (puzzano pure).</p>
+			<p>NON SI ACCETTANO OFFERTE, il prezzo è quello e ti inculi.</p>
+			<p>Se acquisti più articoli in set non faccio comunque sconti.</p>
+			<p>ahah godo</p>
+        </div>
+
+        <!-- VENDITORE -->
+        <div class="seller">
+            <h3>Venditore</h3>
+            <div class="seller-profile">
+                <img src="https://www.rdeditore.it/it/wp-content/uploads/2017/03/CARLO-CONTI.jpg" alt="Profilo">
+                <div>
+                    <strong>xX_gioLoda69_Xx</strong><br>
+                    <span>⭐ 4.9 · 420 recensioni</span>
+                </div>
+            </div>
+			<p>Biografia:<i> sono nero e per me è bianco.</i></p>
+        </div>
+
+        <!-- SIMILI -->
+        <div class="similar">
+            <h3>Articoli dell'utente</h3>
+            <div class="similar-items">
+                <div class="similar-item">
+                    <img src="https://www.kgcshop.it/media/catalog/product/cache/343fd94fea1c174cf71c832f8dc4ca22/d/u/durex-play-delight-sex-toy-vibratore.webp" alt="">
+                    <p>Vibratore Durex <i>(vendo per taglia errata)</i></p>
+					<p><i>19,90 €</i></p>
+                </div>
+                <div class="similar-item">
+                    <img src="https://www.shutterstock.com/image-photo/close-shot-blue-crystals-isolated-600nw-1175585902.jpg" alt="">
+                    <p>Metanfetamina, 10 grammi</p>
+					<p><i>990,00 €</i></p>
+                </div>
+                <div class="similar-item">
+                    <img src="https://www.arsvalue.com/Upl/Auctions/3869/6271/935869/156-1539672.jpg" alt="">
+                    <p>Busto del Duce, firmato da LVI</p>
+					<p><i>1922,00 €</i></p>
+                </div>
+				<div class="similar-item">
+                    <img src="https://data.mecshopping.it/imgprodotto/scarpe-da-trekking-donna-bicolor_596948.jpg" alt="">
+                    <p>Scarpe Quechua</p>
+					<p><i>0,99 €</i></p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
